@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <name>SerpentChess</name>
-    <description>Three-person chess implementation in Java.</description>
+    <description>Three player chess game written in Java. It was implemented as part of the "Clean Code Development" team project in 2013/2014 at the Otto-von-Guericke University Magdeburg.</description>
     <inceptionYear>2013</inceptionYear>
     <packaging>jar</packaging>
 
@@ -142,16 +142,16 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.0.1</version>
-				<configuration>
-				<failOnViolation>true</failOnViolation>
-				<!-- <linkXref>true</linkXref>-->
-				<sourceEncoding>utf-8</sourceEncoding>
-				<minimumTokens>100</minimumTokens>
-				<targetJdk>1.7</targetJdk>
-				<rulesets>
-          			<ruleset>pmd_rules.xml</ruleset>
-        		</rulesets>
-        		</configuration>
+                <configuration>
+                    <failOnViolation>true</failOnViolation>
+                    <!-- <linkXref>true</linkXref>-->
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>1.7</targetJdk>
+                    <rulesets>
+                        <ruleset>pmd_rules.xml</ruleset>
+                    </rulesets>
+                </configuration>
 				<executions>
                     <execution>
                         <goals>
@@ -160,6 +160,7 @@
                     </execution>
                 </executions>
 			</plugin>
+
 			<!-- CheckStyle analysis-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -250,9 +251,10 @@
                         <configuration>
                             <tasks>
                                 <!-- Copy doc files -->
-
-                                <copy file="readme.txt"
-                                      tofile="${project.build.directory}/${project.name}-${project.version}/readme.txt"/>
+                                <copy file="README.md"
+                                      tofile="${project.build.directory}/${project.name}-${project.version}/README.md"/>
+                                <copy file="LICENSE"
+                                      tofile="${project.build.directory}/${project.name}-${project.version}/LICENSE"/>
                                 <copydir src="target/site"
                                          dest="${project.build.directory}/${project.name}-${project.version}/doc"/>
                             </tasks>
@@ -277,13 +279,20 @@
         </plugins>
     </build>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>LICENSE</url>
+        </license>
+    </licenses>
+
     <!-- Generate doc section -->
     <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.6</version>
+                <version>2.7</version>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -323,13 +332,16 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.0.1</version>
-				<configuration>
-				<failOnViolation>false</failOnViolation>
-					<sourceEncoding>utf-8</sourceEncoding>
-					<minimumTokens>100</minimumTokens>
-					<targetJdk>1.7</targetJdk>
-        		</configuration>
+				<version>3.3</version>
+                <configuration>
+                    <failOnViolation>false</failOnViolation>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>1.7</targetJdk>
+                    <rulesets>
+                        <ruleset>pmd_rules.xml</ruleset>
+                    </rulesets>
+                </configuration>
 			</plugin>
 
 			<!-- Generate doc for CheckStyle -->

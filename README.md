@@ -6,6 +6,7 @@ It was implemented as part of the "Clean Code Development" team project in 2013/
 
 ![Screenshot](screenshot.png)
 
+
 # Requirements
 
 You need at least Java 7 to run this application.
